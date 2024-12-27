@@ -38,7 +38,7 @@ def run_bot():
 
     @tasks.loop(time=times)
     async def join_vc():
-        print("Die Stunde hat geschlagen")
+        print("Wie auf dem Jahrmarkt")
         all_guilds = client.guilds
 
         v_channels = []
