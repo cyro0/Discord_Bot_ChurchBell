@@ -2,7 +2,7 @@ import os
 import datetime
 import discord
 import asyncio
-from discord.ext import tasks, commands
+from discord.ext import tasks
 # from constants import TOKEN
 
 # fill list with every datetime hour for join_vc loop
