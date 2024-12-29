@@ -1,8 +1,9 @@
+import os
 import datetime
 import discord
 import asyncio
 from discord.ext import tasks, commands
-from constants import TOKEN
+# from constants import TOKEN
 
 # fill list with every datetime hour for join_vc loop
 times = []
@@ -10,7 +11,8 @@ for i in range(24):
     times.append(datetime.time(hour=i))
 
 def run_bot():
-    BOT_TOKEN = TOKEN
+    #BOT_TOKEN = TOKEN
+    BOT_TOKEN = os.environ['API_TOKEN']
 
     intents = discord.Intents.all()
 
