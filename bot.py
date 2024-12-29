@@ -38,7 +38,7 @@ def run_bot():
             except Exception as e:
                 print(e)
 
-    @tasks.loop(time=times)
+    @tasks.loop(minutes=1)
     async def join_vc():
         print("Wie auf dem Jahrmarkt")
         all_guilds = client.guilds
