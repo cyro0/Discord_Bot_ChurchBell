@@ -56,7 +56,7 @@ def run_bot():
 
         for channel in channels_with_members:
             voice_client = await channel.connect()
-            bell_sound_effect = discord.FFmpegOpusAudio(source="church_bell.ogg", executable="ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe")
+            bell_sound_effect = discord.FFmpegOpusAudio(source="church_bell.ogg", executable="ffmpeg.exe")
 
             voice_client.play(bell_sound_effect)
             await asyncio.sleep(5)
