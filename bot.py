@@ -2,6 +2,7 @@ import os
 import datetime
 import discord
 import asyncio
+from discord.abc import PrivateChannel
 from discord.ext import tasks
 from constants import TOKEN
 
@@ -55,12 +56,16 @@ def run_bot():
                 channels_with_members.append(channel)
 
         for channel in channels_with_members:
-            voice_client = await channel.connect()
-            bell_sound_effect = discord.FFmpegOpusAudio(source="church_bell.ogg", executable="ffmpeg.exe")
+            permissions = channel.permissions_for(channel.guild.me)
 
-            voice_client.play(bell_sound_effect)
-            await asyncio.sleep(5)
+            if permissions.connect:
+                print("can connect")
+                voice_client = await channel.connect()
+                bell_sound_effect = discord.FFmpegOpusAudio(source="church_bell.ogg", executable="ffmpeg.exe")
 
-            await voice_client.disconnect()
+                voice_client.play(bell_sound_effect)
+                await asyncio.sleep(5)
+
+                await voice_client.disconnect()
 
     client.run(BOT_TOKEN)
